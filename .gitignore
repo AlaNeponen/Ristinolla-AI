@@ -24,7 +24,4 @@ nbproject
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-/Ristinolla-AI/build/classes
-/Ristinolla-AI/build/jacoco
-/Ristinolla-AI/build/test-results
-/Ristinolla-AI/build/tmp
+/Ristinolla-AI/build
