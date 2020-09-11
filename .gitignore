@@ -1,4 +1,5 @@
 .gradle
+.nb-gradle
 # Compiled class file
 *.class
 
