@@ -29,7 +29,7 @@ public class Main {
        while (true) {
  
            lauta.tulosta();
-           System.out.println("Syötä siirtosi muodossa: y,x");
+           System.out.println("Syötä siirtosi muodossa: x,y");
            String siirto = lukija.nextLine();
            String[] osat = siirto.split(",");
            int x = Integer.parseInt(osat[0])-1;

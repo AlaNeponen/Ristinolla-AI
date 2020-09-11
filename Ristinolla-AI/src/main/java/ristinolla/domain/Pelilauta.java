@@ -105,7 +105,7 @@ public class Pelilauta {
         System.out.println("");
         for (int i = this.laudanKoko -1; i >= 0 ; i--) {
             for (int j = 0; j < this.getlaudanKoko(); j++) {
-                System.out.print(this.lauta[i][j]);
+                System.out.print(this.lauta[j][i]);
             }
             System.out.println("");
         }
