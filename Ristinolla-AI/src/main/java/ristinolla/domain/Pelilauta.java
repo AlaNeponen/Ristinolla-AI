@@ -103,7 +103,7 @@ public class Pelilauta {
         return true;
     }
     
-    public Integer getlaudanKoko() {
+    public int getlaudanKoko() {
         return this.laudanKoko;
     }
     public String[][] getLauta() {
