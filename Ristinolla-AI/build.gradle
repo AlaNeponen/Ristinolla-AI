@@ -64,4 +64,8 @@ jacocoTestReport {
     }
 }
 
+task myJavadocs(type: Javadoc) {
+    source ='src/main/java'
+}
+
 check.dependsOn jacocoTestReport

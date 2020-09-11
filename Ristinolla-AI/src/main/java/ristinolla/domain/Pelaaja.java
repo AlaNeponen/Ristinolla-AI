@@ -6,13 +6,18 @@
 package ristinolla.domain;
 
 /**
- *
- * @author nate
+ * Luokkalla voidaan luoda tietyn niminen pelaaja jolla on oma pelimerkki.
+ * Luokan avulla tietty pelaaja voidaan yhdistää tiettyyn pelimerkkiin
  */
 public class Pelaaja {
     String nimi;
     String merkki;
     
+    /**
+     * Luo halutun nimisen pelaajaolion jokä käyttää haluttua pelimerkkiä
+     * @param nimi pelaajan nimi (esim. käyttäjän syöttämä nimi)
+     * @param merkki pelaajan käyttämä pelimerkki (tässä sovelluksessa X tai O)
+     */
     public Pelaaja(String nimi, String merkki) {
         this.nimi = nimi;
         this.merkki = merkki;

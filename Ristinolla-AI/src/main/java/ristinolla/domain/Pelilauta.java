@@ -6,13 +6,17 @@
 package ristinolla.domain;
 
 /**
- *
- * @author nate
+ * Luokka luo tietorakenteen jota muokkaamalla ja tarkastelemalla voidaan simuloida ristinollaa virtuaalisella pelilaudalla.
+ * Luokalla on paljon metodeja jotka liittyvät erilaisten pelitilanteiden tarkastelemiseen
  */
 public class Pelilauta {
     String[][] lauta;
     int laudanKoko;
     
+    /**
+     * Luo halutun kokoisen pelilautaolion sekä alustaa sen tulostettavaan tilaan (kaikissa laudan "ruuduissa" on tyhjää ilmaiseva "-", merkki)
+     * @param koko Käyttäjän syöttämä pelilaudan koko (x*x, jossa x on konstruktorin saama parametri)
+     */
     public Pelilauta(int koko) {
         this.lauta = new String[koko][koko];
         this.laudanKoko = koko;
@@ -26,12 +30,24 @@ public class Pelilauta {
             }
         }
     }
-    
+    /**
+     * Asettaa haluttuun kohtaan pelilautaa saamansa merkin
+     * @param merkki Siirron tehneen pelaajan pelimerkki (X tai O)
+     * @param x Sijanti laudalla vaakasuunnassa (ulomman taulukon indeksi)
+     * @param y Sijainti laudalla pystysuunnassa (sisemmän taulukon indeksi)
+     */
     public void asetaMerkki(String merkki, int x, int y) {
         lauta[x][y] = merkki;
         
     }
-    
+    /**
+     * Käy pelilaudan läpi siltä varalta että viimeisin siirto olisi aiheuttanut voiton kyseiselle pelaajalle.
+     * Käy järjestyksessä kaikki mahdolliset voittavat rivit läpi (pysty, vaaka, sekä vasemmalta oikealle katsottuna nousevan ja laskevan vinorivin)
+     * @param merkki Viimeisimmän siirron tehneen pelaajan pelimerkki
+     * @param x Viimeisimmän siirron sijainti laudalla vaakasuunnassa (ulomman taulukon indeksi)
+     * @param y Viimeisimmän siirron sijainti laudalla pystysuunnassa (sisemmän taulukon indeksi)
+     * @return Palauttaa totuusarvon true jos viimeisin siirto johti voittoon, muussa tapauksessa palauttaa arvon false
+     */
     public Boolean tarkastaVoitto(String merkki, int x, int y) {
         Boolean voittaja = true;
         
@@ -82,6 +98,9 @@ public class Pelilauta {
         
         return voittaja;
     }
+    /**
+     * Tulostaa pelilaudan merkkeineen tekstiriville.
+     */
     public void tulosta() {
         System.out.println("");
         for (int i = this.laudanKoko -1; i >= 0 ; i--) {
@@ -92,6 +111,10 @@ public class Pelilauta {
         }
         System.out.println("");
     }
+    /**
+     * Tarkastaa onko kaikissa taulukon alkioissa jo jokin pelimerkki, eli onko peli edennyt tasapeliin
+     * @return Palauttaa true mikäli pelilauta on täynnä, muuten false
+     */
     public Boolean onkoTäynnä() {
         for (int i = 0; i < this.laudanKoko; i++) {
             for (int j = 0; j < this.laudanKoko; j++) {
