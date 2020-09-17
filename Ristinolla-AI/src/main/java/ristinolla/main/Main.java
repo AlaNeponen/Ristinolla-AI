@@ -23,10 +23,10 @@ public class Main {
         int koko = 0;
         while (true) {
             koko = Integer.parseInt(lukija.nextLine());
-            if(koko < 3 || koko > 9) {
-                System.out.println("Syötä luku välliltä 3-9!");
+            if(koko < 3 || koko > 3) {
+                System.out.println("Psst, Syötä luku 3!");
             }
-            if (koko >= 3 && koko <= 9) {
+            if (koko >= 3 && koko <= 3) {
                 break;
             }
         }
@@ -51,14 +51,12 @@ public class Main {
                System.out.println("Onnitleut " + käyttäjä.getNimi() + ", voitit pelin!");
                break;
            }
-           Tekoäly.seuraavaSiirto();
-           while (true) {
-               String[][] matriisi = lauta.getLauta();
-               if (matriisi[Tekoäly.getX()][Tekoäly.getY()].equals("-")) {
-                   break;
-               }
-               Tekoäly.seuraavaSiirto();
+           if (lauta.onkoTäynnä()) {
+               lauta.tulosta();
+               System.out.println("Tasapeli!");
+               break;
            }
+           Tekoäly.seuraavaSiirto(lauta);
            lauta.asetaMerkki(tietokone.getMerkki(), Tekoäly.getX(), Tekoäly.getY());
            if (lauta.tarkastaVoitto(tietokone.getMerkki(), Tekoäly.getX(), Tekoäly.getY())) {
                lauta.tulosta();
