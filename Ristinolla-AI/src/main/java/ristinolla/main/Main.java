@@ -20,7 +20,17 @@ public class Main {
         System.out.println("Syötä pelaajan nimi");
         String nimi = lukija.nextLine();
         System.out.println("Syötä pelilaudan leveys ja pituus (yksi numero)");
-        int koko = Integer.parseInt(lukija.nextLine());
+        int koko = 0;
+        while (true) {
+            koko = Integer.parseInt(lukija.nextLine());
+            if(koko < 3 || koko > 9) {
+                System.out.println("Syötä luku välliltä 3-9!");
+            }
+            if (koko >= 3 && koko <= 9) {
+                break;
+            }
+        }
+        
         Pelaaja käyttäjä = new Pelaaja(nimi, "X");
         Pelaaja tietokone = new Pelaaja("Tietokone", "O");
         Pelilauta lauta = new Pelilauta(koko);
