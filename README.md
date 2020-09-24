@@ -1,6 +1,14 @@
 # Ristinolla-AI
 Aineopintojen harjoitustyö: Tietorakenteet ja algoritmit
 
+## Linkkejä dokumentaatioon
+
+[Määrittelydokumentti](https://github.com/AlaNeponen/Ristinolla-AI/blob/master/Dokumentaatio/M%C3%A4%C3%A4rittelydokumentti.md)
+
+[Toteutusdokumentti](https://github.com/AlaNeponen/Ristinolla-AI/blob/master/Dokumentaatio/Toteutusdokumentti.md)
+
+[Testausdokumentti](https://github.com/AlaNeponen/Ristinolla-AI/blob/master/Dokumentaatio/Testausdokumentti.md)
+
 ## Viikkoraportit
 
 [1. Viikko](https://github.com/AlaNeponen/Ristinolla-AI/blob/master/Dokumentaatio/Viikkoraportti1.md)
