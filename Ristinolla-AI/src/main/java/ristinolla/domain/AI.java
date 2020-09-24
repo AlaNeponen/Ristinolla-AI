@@ -33,7 +33,7 @@ public class AI {
             for (int j = 0; j < lauta.getlaudanKoko(); j++) {
                 if (lauta.getLauta()[i][j].equals("-")) {
                     lauta.asetaMerkki("O", i, j);
-                    int siirronArvo = minimax(lauta, false, 0, i ,j);
+                    int siirronArvo = minimax(lauta, false, 0, i ,j, -5000, 5000);
                     lauta.asetaMerkki("-", i, j);
                     if (siirronArvo > parhaanArvo) {
                         parhaanArvo = siirronArvo;
@@ -57,7 +57,7 @@ public class AI {
      * @param y Kutsua edeltäneen siirron y-koordinaatti laudalla.
      * @return Arvo kertoo kuinka suotuisa kyseinen siirto (Huom! eli alkuperäistä kutsua EDELTÄVÄ siirto) on tekoälyn kannalta (mitä suurempi arvo, sitä nopeammin se johtaa voittoon ja mitä pienempi, sitä nopeammin se johtaa häviöön).
      */
-    private int minimax(Pelilauta lauta, Boolean tietokoneenVuoro, int syvyys, int x, int y) {
+    private int minimax(Pelilauta lauta, Boolean tietokoneenVuoro, int syvyys, int x, int y, int alfa, int beta) {
         if (!tietokoneenVuoro && lauta.tarkastaVoitto("O", x, y)) {
             return 500 - syvyys;
         }
@@ -73,12 +73,21 @@ public class AI {
                 for (int j = 0; j < lauta.getlaudanKoko(); j++) {
                     if (lauta.getLauta()[i][j].equals("-")) {
                         lauta.asetaMerkki("O", i, j);
-                        int arvo = minimax(lauta, !tietokoneenVuoro, syvyys++, i, j);
+                        int arvo = minimax(lauta, !tietokoneenVuoro, syvyys++, i, j, alfa, beta);
                         if (arvo > maksimi) {
                             maksimi = arvo;
                         }
+                        if (maksimi > alfa) {
+                            alfa = maksimi;
+                        }
                         lauta.asetaMerkki("-", i, j);
                     }
+                    if (beta <= alfa) {
+                        break;
+                    }
+                }
+                if (beta <= alfa) {
+                    break;
                 }
             }
             return maksimi;
@@ -89,12 +98,21 @@ public class AI {
                 for (int m = 0; m < lauta.getlaudanKoko(); m++) {
                     if (lauta.getLauta()[l][m].equals("-")) {
                         lauta.asetaMerkki("X", l, m);
-                        int arvo = minimax(lauta, !tietokoneenVuoro, syvyys++, l, m);
+                        int arvo = minimax(lauta, !tietokoneenVuoro, syvyys++, l, m, alfa, beta);
                         if (arvo < minimi) {
                             minimi = arvo;
                         }
+                        if (minimi < beta) {
+                            beta = minimi;
+                        }
                         lauta.asetaMerkki("-", l, m);
                     }
+                    if (beta <= alfa) {
+                        break;
+                    }
+                }
+                if (beta <= alfa) {
+                    break;
                 }
             }
             return minimi;

@@ -28,14 +28,14 @@ public class RistinollaUI {
     public void käynnistä() {
         System.out.println("Syötä pelaajan nimi");
         String nimi = lukija.nextLine();
-        System.out.println("Syötä pelilaudan leveys ja pituus (yksi numero)");
+        System.out.println("Syötä pelilaudan koko (3 tai 4)");
         int koko = 0;
         while (true) {
             koko = Integer.parseInt(lukija.nextLine());
-            if(koko < 3 || koko > 3) {
-                System.out.println("Psst, Syötä luku 3!");
+            if(koko < 3 || koko > 4) {
+                System.out.println("Psst, Syötä luku 3 tai 4!");
             }
-            if (koko >= 3 && koko <= 3) {
+            if (koko >= 3 && koko <= 4) {
                 break;
             }
         }
