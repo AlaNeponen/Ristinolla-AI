@@ -48,13 +48,16 @@ public class AI {
         this.SiirronY = parhaanY;
     }
     /**
-     * Rekursiivinen metodi joka käy läpi kaikki mahdolliset siirrot jokaisella pelipuun tasolla kunnes päätyy tilanteeseen jossa lauta on täynnä, tai jompikumpi pelaaja on voittanut.
+     * Rekursiivinen metodi joka käy läpi mahdollisia siirtoja eri pelipuun tasoilla kunnes päätyy tilanteeseen jossa lauta on täynnä, tai jompikumpi pelaaja on voittanut.
+     * Metodi karsii alfa- ja beta-arvojen avulla laskennasta sellaisia pelipuun oksia/lehtiä (eli siirtoja) joita ei ikinä valittaisi (olettaen että molemat pelaajat pelaavat "täydellisesti").
      * Metodi palauttaa arvon joka kertoo mihin tilanteeseen peli päättyy kyseisellä siirolla (olettaen että kaikki sitä mahdollisesti seuraavat siirrot molemmilta pelaajilta ovat "täydellisiä").
      * @param lauta Pelilauta-olio jonka mukana kulkevassa taulukkoesityksessä on säilöttynä sen hetkinen pelitilanne.
      * @param tietokoneenVuoro Totuusarvo kertoo onko seuraava siirto tekoälyn, vai käyttäjän tekemä.
      * @param syvyys Kertoo millä tasolla pelipuuta sillä hetkellä edetään (kuinka monta siirtoa ollaan edetty alkuperäisestä kutsusta). Tämän avulla voidaan muokata metodin palauttamia arvoja siten, että mitä nopeammin kyseinen siirto johtaa voittoon/häviöön, sitä suuremman/pienemmän arvon se saa.
      * @param x Kutsua edeltäneen siirron x-koordinaatti laudalla.
      * @param y Kutsua edeltäneen siirron y-koordinaatti laudalla.
+     * @param alfa Suurin arvo (eli tekoälyn kannalta paras) jonka metodi voisi palauttaa siirron arvoksi. Alustetaan alkuperäiseen kutsuun hyvin pieneksi. 
+     * @param beta Pienin arvo (eli käyttäjän kannalta paras) jonka metodi voisi palauttaa siirron arvoksi. Alustetaan alkuperäiseen kutsuun hyvin suureksi.
      * @return Arvo kertoo kuinka suotuisa kyseinen siirto (Huom! eli alkuperäistä kutsua EDELTÄVÄ siirto) on tekoälyn kannalta (mitä suurempi arvo, sitä nopeammin se johtaa voittoon ja mitä pienempi, sitä nopeammin se johtaa häviöön).
      */
     private int minimax(Pelilauta lauta, Boolean tietokoneenVuoro, int syvyys, int x, int y, int alfa, int beta) {
