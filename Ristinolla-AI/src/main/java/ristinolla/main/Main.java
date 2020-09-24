@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner lukija = new Scanner(System.in);
         RistinollaUI ui = new RistinollaUI(lukija);    
-        ui.käynnistä();
+        ui.kaynnista();
     }
     
 }

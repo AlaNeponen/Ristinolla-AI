@@ -88,7 +88,7 @@ public class Pelilauta {
         voittaja = true;
         
         int nouseva = 0;
-        for (int laskeva = this.laudanKoko -1; laskeva >= 0; laskeva--) {
+        for (int laskeva = this.laudanKoko - 1; laskeva >= 0; laskeva--) {
             if (!this.lauta[laskeva][nouseva].equals(merkki)) {
                 voittaja = false;
                 break;
@@ -103,7 +103,7 @@ public class Pelilauta {
      */
     public void tulosta() {
         System.out.println("");
-        for (int i = this.laudanKoko -1; i >= 0 ; i--) {
+        for (int i = this.laudanKoko - 1; i >= 0; i--) {
             for (int j = 0; j < this.getlaudanKoko(); j++) {
                 System.out.print(this.lauta[j][i]);
             }
@@ -115,7 +115,7 @@ public class Pelilauta {
      * Tarkastaa onko kaikissa taulukon alkioissa jo jokin pelimerkki, eli onko peli edennyt tasapeliin
      * @return Palauttaa true mikäli pelilauta on täynnä, muuten false
      */
-    public Boolean onkoTäynnä() {
+    public Boolean onkoTaynna() {
         for (int i = 0; i < this.laudanKoko; i++) {
             for (int j = 0; j < this.laudanKoko; j++) {
                 if (this.lauta[i][j].equals("-")) {

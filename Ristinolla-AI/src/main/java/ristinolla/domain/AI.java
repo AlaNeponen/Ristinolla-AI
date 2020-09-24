@@ -9,15 +9,15 @@ package ristinolla.domain;
  * @author nate
  */
 public class AI {
-    int SiirronX;
-    int SiirronY;
+    int siirronX;
+    int siirronY;
 
     /**
      * Luo AI-olion ja asettaa seuraavan siirron arvoksi taulun vasemman alanurkan (tätä arvoa ei kuitenkaan koskaan käytetä sellaisenaan ja on olemassa vain alustustarkoituksiin)
      */
     public AI() {
-        this.SiirronX = 0;
-        this.SiirronY = 0;
+        this.siirronX = 0;
+        this.siirronY = 0;
     }
     /**
      * Metodi käy läpi kaikki tällä hetkellä mahdolliset siirrot minimax-metodin avulla ja asettaa oliomuuttujien arvoiksi parhaan siirron x- ja y-koordinaatin.
@@ -33,7 +33,7 @@ public class AI {
             for (int j = 0; j < lauta.getlaudanKoko(); j++) {
                 if (lauta.getLauta()[i][j].equals("-")) {
                     lauta.asetaMerkki("O", i, j);
-                    int siirronArvo = minimax(lauta, false, 0, i ,j, -5000, 5000);
+                    int siirronArvo = minimax(lauta, false, 0, i, j, -5000, 5000);
                     lauta.asetaMerkki("-", i, j);
                     if (siirronArvo > parhaanArvo) {
                         parhaanArvo = siirronArvo;
@@ -44,8 +44,8 @@ public class AI {
                 
             }
         } 
-        this.SiirronX = parhaanX;
-        this.SiirronY = parhaanY;
+        this.siirronX = parhaanX;
+        this.siirronY = parhaanY;
     }
     /**
      * Rekursiivinen metodi joka käy läpi mahdollisia siirtoja eri pelipuun tasoilla kunnes päätyy tilanteeseen jossa lauta on täynnä, tai jompikumpi pelaaja on voittanut.
@@ -67,7 +67,7 @@ public class AI {
         if (tietokoneenVuoro && lauta.tarkastaVoitto("X", x, y)) {
             return -500 + syvyys;
         }
-        if (lauta.onkoTäynnä()) {
+        if (lauta.onkoTaynna()) {
             return 0;
         }
         if (tietokoneenVuoro) {
@@ -94,8 +94,7 @@ public class AI {
                 }
             }
             return maksimi;
-        }
-        else {
+        } else {
             int minimi = 1000;
             for (int l = 0; l < lauta.getlaudanKoko(); l++) {
                 for (int m = 0; m < lauta.getlaudanKoko(); m++) {
@@ -122,9 +121,9 @@ public class AI {
         }
     }
     public int getX() {
-        return this.SiirronX;
+        return this.siirronX;
     }
     public int getY() {
-        return this.SiirronY;
+        return this.siirronY;
     }
 }

@@ -23,7 +23,7 @@ public class AITest {
     public AITest() {
     }
     @Test
-    public void tekoälyVoittaaTyhjälläLaudallaKolmellaSiirrolla() {
+    public void tekoalyVoittaaTyhjallaLaudallaKolmellaSiirrolla() {
         for (int i = 0; i < lauta.getlaudanKoko(); i++) {
             kone.seuraavaSiirto(lauta);
             lauta.asetaMerkki("O", kone.getX(), kone.getY());
@@ -31,7 +31,7 @@ public class AITest {
         assertEquals(true, lauta.tarkastaVoitto("O", kone.getX(), kone.getY()));
     }
     @Test
-    public void tekoälyEstääVoittavanLiikkeen() {
+    public void tekoalyEstaaVoittavanLiikkeen() {
         lauta.asetaMerkki("X", 0, 0);
         lauta.asetaMerkki("X", 0, 1);
         lauta.asetaMerkki("O", 1, 1);
@@ -40,7 +40,7 @@ public class AITest {
         assertEquals("O", lauta.getLauta()[0][2]);
     }
     @Test
-    public void tekoälyTekeeVoittavanLiikkeen() {
+    public void tekoalyTekeeVoittavanLiikkeen() {
         lauta.asetaMerkki("X", 1, 1);
         lauta.asetaMerkki("O", 1, 0);
         lauta.asetaMerkki("X", 1, 2);

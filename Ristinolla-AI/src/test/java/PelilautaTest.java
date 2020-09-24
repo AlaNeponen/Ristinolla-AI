@@ -49,54 +49,54 @@ public class PelilautaTest {
         assertEquals("testi", pelilauta[x][y]);
     }
     @Test
-    public void voittajaLöytyySivuttaissuunnassa() {
-        for (int i = 0; i < lauta.getlaudanKoko(); i++){
+    public void voittajaLoytyySivuttaissuunnassa() {
+        for (int i = 0; i < lauta.getlaudanKoko(); i++) {
             lauta.asetaMerkki("X", i, 0);
         }
         Boolean totta = true;
-        assertEquals(totta, lauta.tarkastaVoitto("X", lauta.getlaudanKoko()-1, 0));
+        assertEquals(totta, lauta.tarkastaVoitto("X", lauta.getlaudanKoko() - 1, 0));
     }
     @Test
-    public void voittajaLöytyyPystysuunnassa() {
+    public void voittajaLoytyyPystysuunnassa() {
         for (int i = 0; i < lauta.getlaudanKoko(); i++) {
             lauta.asetaMerkki("X", 0, i);
         }
         Boolean totta = true;
-        assertEquals(totta, lauta.tarkastaVoitto("X", 0, lauta.getlaudanKoko()-1));
+        assertEquals(totta, lauta.tarkastaVoitto("X", 0, lauta.getlaudanKoko() - 1));
     }
     @Test
-    public void voittajaLöytyyVinosuunnastaNouseva() {
+    public void voittajaLoytyyVinosuunnastaNouseva() {
         for (int i = 0; i < lauta.getlaudanKoko(); i++) {
             lauta.asetaMerkki("X", i, i);
         }
         Boolean totta = true;
-        assertEquals(totta, lauta.tarkastaVoitto("X", lauta.getlaudanKoko()-1, lauta.getlaudanKoko()-1));
+        assertEquals(totta, lauta.tarkastaVoitto("X", lauta.getlaudanKoko() - 1, lauta.getlaudanKoko() - 1));
     }
     @Test
-    public void voittajaLöytyyVinosuunnastaLaskeva() {
+    public void voittajaLoytyyVinosuunnastaLaskeva() {
         int nouseva = 0;
-        for (int laskeva = lauta.getlaudanKoko()-1; laskeva >= 0; laskeva--) {
+        for (int laskeva = lauta.getlaudanKoko() - 1; laskeva >= 0; laskeva--) {
             lauta.asetaMerkki("X", laskeva, nouseva);
             nouseva++;
         }
         Boolean totta = true;
-        assertEquals(totta, lauta.tarkastaVoitto("X", 0, lauta.getlaudanKoko()-1));
+        assertEquals(totta, lauta.tarkastaVoitto("X", 0, lauta.getlaudanKoko() - 1));
     }
     @Test
-    public void onkoTäysiTunnistaaTäynnäOlevanLaudan() {
+    public void onkoTaysiTunnistaaTaynnaOlevanLaudan() {
         for (int i = 0; i < lauta.getlaudanKoko(); i++) {
             for (int j = 0; j < lauta.getlaudanKoko(); j++) {
                 lauta.asetaMerkki("täysi", i, j);
             } 
         }
         Boolean totta = true;
-        assertEquals(totta, lauta.onkoTäynnä());
+        assertEquals(totta, lauta.onkoTaynna());
     }
     @Test
     public void tarkistaVoittoPalauttaaFalseJosEiOleVoittajaa() {
         lauta.asetaMerkki("X", 0, 2);
-        Boolean väärin = false;
-        assertEquals(väärin, lauta.tarkastaVoitto("X", 0, 2));
+        Boolean eiOle = false;
+        assertEquals(eiOle, lauta.tarkastaVoitto("X", 0, 2));
     }
     @BeforeClass
     public static void setUpClass() {
