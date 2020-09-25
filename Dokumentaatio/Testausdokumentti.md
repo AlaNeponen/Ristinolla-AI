@@ -15,4 +15,6 @@ Testeissä tarkastetaan että pelilauta tunnistaa, mikäli viimeisimällä siiro
 Testeissä tarkastetaan että tekoäly osaa tehdä oikean siirron yksinkertaisissa perustilanteissa (estää vastustajan voittavan siirron yms.)
 
 
+## Ohjelman suorituskyvyn testaus
 
+Perusversiolla (minimax-algoritmi alpha-beta-karsinnalla) ohjelmalla kestää ~1m 30s laskea tekoälyn ensimmäinen siirto 4x4 pelilaudalla.
