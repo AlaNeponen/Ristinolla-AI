@@ -16,3 +16,5 @@ Aineopintojen harjoitustyö: Tietorakenteet ja algoritmit
 [2. Viikko](https://github.com/AlaNeponen/Ristinolla-AI/blob/master/Dokumentaatio/Viikkoraportti2.md)
 
 [3. viikko](https://github.com/AlaNeponen/Ristinolla-AI/blob/master/Dokumentaatio/Viikkoraportti3.md)
+
+[4. viikko](https://github.com/AlaNeponen/Ristinolla-AI/blob/master/Dokumentaatio/Viikkoraportti4.md)
