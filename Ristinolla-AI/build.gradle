@@ -21,7 +21,13 @@ sourceCompatibility = '1.8'
 if (!hasProperty('mainClass')) {
     ext.mainClass = 'ristinolla.main.Main'
 }
-
+jar {
+    manifest {
+        attributes(
+            'Main-Class': 'ristinolla.main.Main'
+        )
+    }
+}
 repositories {
     mavenCentral()
     // You may define additional repositories, or even remove "mavenCentral()".
