@@ -46,7 +46,7 @@ public class RistinollaUI {
         while (true) {
  
             this.lauta.tulosta();
-            System.out.println("Syötä siirtosi muodossa: x,y");
+            System.out.println("Syötä siirtosi muodossa: x,y (esim. vasen alanurkka olisi 1,1)");
             String siirto = this.lukija.nextLine();
             String[] osat = siirto.split(",");
             int x = Integer.parseInt(osat[0]) - 1;

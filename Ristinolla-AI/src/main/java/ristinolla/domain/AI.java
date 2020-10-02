@@ -60,7 +60,7 @@ public class AI {
      * @param beta Pienin arvo (eli käyttäjän kannalta paras) jonka metodi voisi palauttaa siirron arvoksi. Alustetaan alkuperäiseen kutsuun hyvin suureksi.
      * @return Arvo kertoo kuinka suotuisa kyseinen siirto (Huom! eli alkuperäistä kutsua EDELTÄVÄ siirto) on tekoälyn kannalta (mitä suurempi arvo, sitä nopeammin se johtaa voittoon ja mitä pienempi, sitä nopeammin se johtaa häviöön).
      */
-    private int minimax(Pelilauta lauta, Boolean tietokoneenVuoro, int syvyys, int x, int y, int alfa, int beta) {
+    private int minimax(Pelilauta lauta, boolean tietokoneenVuoro, int syvyys, int x, int y, int alfa, int beta) {
         if (!tietokoneenVuoro && lauta.tarkastaVoitto("O", x, y)) {
             return 500 - syvyys;
         }

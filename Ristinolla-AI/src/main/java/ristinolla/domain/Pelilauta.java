@@ -48,8 +48,8 @@ public class Pelilauta {
      * @param y Viimeisimmän siirron sijainti laudalla pystysuunnassa (sisemmän taulukon indeksi)
      * @return Palauttaa totuusarvon true jos viimeisin siirto johti voittoon, muussa tapauksessa palauttaa arvon false
      */
-    public Boolean tarkastaVoitto(String merkki, int x, int y) {
-        Boolean voittaja = true;
+    public boolean tarkastaVoitto(String merkki, int x, int y) {
+        boolean voittaja = true;
         
         for (int j = 0; j < this.laudanKoko; j++) {
             if (!this.lauta[x][j].equals(merkki)) {
@@ -115,7 +115,7 @@ public class Pelilauta {
      * Tarkastaa onko kaikissa taulukon alkioissa jo jokin pelimerkki, eli onko peli edennyt tasapeliin
      * @return Palauttaa true mikäli pelilauta on täynnä, muuten false
      */
-    public Boolean onkoTaynna() {
+    public boolean onkoTaynna() {
         for (int i = 0; i < this.laudanKoko; i++) {
             for (int j = 0; j < this.laudanKoko; j++) {
                 if (this.lauta[i][j].equals("-")) {
