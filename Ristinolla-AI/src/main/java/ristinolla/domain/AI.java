@@ -11,6 +11,7 @@ package ristinolla.domain;
 public class AI {
     int siirronX;
     int siirronY;
+    boolean avausSiirto;
 
     /**
      * Luo AI-olion ja asettaa seuraavan siirron arvoksi taulun vasemman alanurkan (tätä arvoa ei kuitenkaan koskaan käytetä sellaisenaan ja on olemassa vain alustustarkoituksiin)
@@ -18,13 +19,29 @@ public class AI {
     public AI() {
         this.siirronX = 0;
         this.siirronY = 0;
+        this.avausSiirto = true;
+    }
+    public void avaus(Pelilauta lauta) {
+        String[][] pelilauta = lauta.getLauta();
+        if (pelilauta[0][0].equals("X") || pelilauta[lauta.getlaudanKoko() - 1][lauta.getlaudanKoko() - 1].equals("X") || pelilauta[0][lauta.getlaudanKoko() - 1].equals("X") || pelilauta[lauta.getlaudanKoko() - 1][0].equals("X")) {
+            this.siirronX = (lauta.getlaudanKoko() / 2);
+            this.siirronY = this.siirronX;
+            System.out.println(this.siirronX);
+        } else {
+            this.siirronX = 0;
+            this.siirronY = 0;
+        }
+        this.avausSiirto = false;
     }
     /**
      * Metodi käy läpi kaikki tällä hetkellä mahdolliset siirrot minimax-metodin avulla ja asettaa oliomuuttujien arvoiksi parhaan siirron x- ja y-koordinaatin.
      * @param lauta Pelilauta-olio jonka talukkoesityksessä on talessa tämän hetkinen pelitilanne.
      */
     public void seuraavaSiirto(Pelilauta lauta) {
-        
+        if (avausSiirto) {
+            this.avaus(lauta);
+            return;
+        }
         int parhaanX = -1;
         int parhaanY = -1;
         int parhaanArvo = -1000;
