@@ -21,6 +21,10 @@ public class AI {
         this.siirronY = 0;
         this.avausSiirto = true;
     }
+    /**
+     * Metodi valitsee käyttäjän tekemän avauksen perusteella yhden ennalta määritetyistä avaussiirroista, ja asettaa sen koordinaatit oliomuuttujien arvoiksi.
+     * @param lauta Pelilauta-olio jonka taulukkoesityksessä on tallessa tämän hetkinen pelitilanne.
+     */
     public void avaus(Pelilauta lauta) {
         String[][] pelilauta = lauta.getLauta();
         if (pelilauta[0][0].equals("X") || pelilauta[lauta.getlaudanKoko() - 1][lauta.getlaudanKoko() - 1].equals("X") || pelilauta[0][lauta.getlaudanKoko() - 1].equals("X") || pelilauta[lauta.getlaudanKoko() - 1][0].equals("X")) {
@@ -34,7 +38,7 @@ public class AI {
         this.avausSiirto = false;
     }
     /**
-     * Metodi käy läpi kaikki tällä hetkellä mahdolliset siirrot minimax-metodin avulla ja asettaa oliomuuttujien arvoiksi parhaan siirron x- ja y-koordinaatin.
+     * Metodi käy läpi kaikki tällä hetkellä mahdolliset siirrot minimax-metodin avulla ja asettaa oliomuuttujien arvoiksi parhaan siirron x- ja y-koordinaatin. Mikäli kyseessä on avaussiirto, siirron koordinaatit määritetään metodin "avaus" avulla.
      * @param lauta Pelilauta-olio jonka talukkoesityksessä on talessa tämän hetkinen pelitilanne.
      */
     public void seuraavaSiirto(Pelilauta lauta) {
@@ -142,5 +146,8 @@ public class AI {
     }
     public int getY() {
         return this.siirronY;
+    }
+    public void setAvaus(boolean onkoAvaus) {
+        this.avausSiirto = onkoAvaus;
     }
 }

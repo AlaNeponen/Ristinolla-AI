@@ -35,6 +35,7 @@ public class AITest {
         lauta.asetaMerkki("X", 0, 0);
         lauta.asetaMerkki("X", 0, 1);
         lauta.asetaMerkki("O", 1, 1);
+        kone.setAvaus(false);
         kone.seuraavaSiirto(lauta);
         lauta.asetaMerkki("O", kone.getX(), kone.getY());
         assertEquals("O", lauta.getLauta()[0][2]);
@@ -46,9 +47,24 @@ public class AITest {
         lauta.asetaMerkki("X", 1, 2);
         lauta.asetaMerkki("O", 0, 0);
         lauta.asetaMerkki("X", 0, 2);
+        kone.setAvaus(false);
         kone.seuraavaSiirto(lauta);
         lauta.asetaMerkki("O", kone.getX(), kone.getY());
         assertEquals("O", lauta.getLauta()[2][0]);
+    }
+    @Test
+    public void tekoalyAvaaKulmaanJosPelaajaEiAvaaKulmaan() {
+        lauta.asetaMerkki("X", 1, 1);
+        kone.seuraavaSiirto(lauta);
+        lauta.asetaMerkki("O", kone.getX(), kone.getY());
+        assertEquals("O", lauta.getLauta()[0][0]);
+    }
+    @Test
+    public void tekoalyAvaaKeskelleJosPelaajaAvasiKulmaan() {
+        lauta.asetaMerkki("X", 0, 0);
+        kone.seuraavaSiirto(lauta);
+        lauta.asetaMerkki("O", kone.getX(), kone.getY());
+        assertEquals("O", lauta.getLauta()[1][1]);
     }
     @BeforeClass
     public static void setUpClass() {
