@@ -1,6 +1,16 @@
 # Ristinolla-AI
 Aineopintojen harjoitustyö: Tietorakenteet ja algoritmit
 
+## Käyttöohje
+Navigoi kansioon Ristinolla-AI, ja kasaa projekti komennolla `gradle build`.
+Saat käynnistettyä ohjelman samasta kansiosta komennolla `java -jar build/libs/Ristinolla-AI.jar`.
+
+Testit saa suoritettua komennolla `gradle test`, ja testikattavuusraportti löytyy polusta *build/reports/jacoco/test/html/index.html*.
+
+Checkstyle-tarkastuksen saa suoritettua komennoilla `gradle checkstyleMain` sekä `gradle checkstyleTest`. Raportit löytyvät kansiosta *build/reports/checkstyle* (tiedostot 'main.html' ja 'test.html').
+
+Javadocin saa luotua komennolla `gradle myJavadocs` ja se löytyy polusta *build/docs/javadocs/index.html*.
+
 ## Linkkejä dokumentaatioon
 
 [Määrittelydokumentti](https://github.com/AlaNeponen/Ristinolla-AI/blob/master/Dokumentaatio/M%C3%A4%C3%A4rittelydokumentti.md)
