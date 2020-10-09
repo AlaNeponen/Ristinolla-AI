@@ -98,6 +98,16 @@ public class PelilautaTest {
         Boolean eiOle = false;
         assertEquals(eiOle, lauta.tarkastaVoitto("X", 0, 2));
     }
+    @Test
+    public void onkoTyhjaPalauttaaTrueJosTyhja() {
+        lauta.asetaMerkki("X", 0, 0);
+        assertEquals(true, lauta.onkoTyhja(0, 1));
+    }
+    @Test
+    public void onkoTyhjaPalauttaaFalseJosTaynna() {
+        lauta.asetaMerkki("X", 1, 2);
+        assertEquals(false, lauta.onkoTyhja(1, 2));
+    }
     @BeforeClass
     public static void setUpClass() {
     }

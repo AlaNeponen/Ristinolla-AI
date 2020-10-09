@@ -44,15 +44,24 @@ public class RistinollaUI {
         this.lauta = new Pelilauta(koko);
         
         while (true) {
- 
-            this.lauta.tulosta();
-            System.out.println("Syötä siirtosi muodossa: x,y (esim. vasen alanurkka olisi 1,1)");
-            String siirto = this.lukija.nextLine();
-            String[] osat = siirto.split(",");
-            int x = Integer.parseInt(osat[0]) - 1;
-            int y = Integer.parseInt(osat[1]) - 1;
-           
-            this.lauta.asetaMerkki(this.kayttaja.getMerkki(), x, y);
+            int x = 0;
+            int y = 0;
+            while (true) {
+                this.lauta.tulosta();
+                System.out.println("Syötä siirtosi muodossa: x,y (esim. vasen alanurkka olisi 1,1)");
+                String siirto = this.lukija.nextLine();
+                String[] osat = siirto.split(",");
+                x = Integer.parseInt(osat[0]) - 1;
+                y = Integer.parseInt(osat[1]) - 1;
+            
+                if (this.lauta.onkoTyhja(x, y)) {
+                    this.lauta.asetaMerkki(this.kayttaja.getMerkki(), x, y);
+                    break;
+                } else {
+                    System.out.println("Et voi asettaa merkkiä toisen merkin päälle!");
+                }
+            }
+            
             if (this.lauta.tarkastaVoitto(this.kayttaja.getMerkki(), x, y)) {
                 this.lauta.tulosta();
                 System.out.println("Onnitleut " + this.kayttaja.getNimi() + ", voitit pelin!");

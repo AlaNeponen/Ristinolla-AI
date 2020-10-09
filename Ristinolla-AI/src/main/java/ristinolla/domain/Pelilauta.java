@@ -31,6 +31,18 @@ public class Pelilauta {
         }
     }
     /**
+     * Tarkistaa onko kyseinen kohta laudalla tyhjä
+     * @param x x-koordinaatti
+     * @param y y-koordinaatti
+     * @return true jos oli tyhjä, muuten false.
+     */
+    public boolean onkoTyhja(int x, int y) {
+        if (this.lauta[x][y].equals("-")) {
+            return true;
+        }
+        return false;
+    }
+    /**
      * Asettaa haluttuun kohtaan pelilautaa saamansa merkin
      * @param merkki Siirron tehneen pelaajan pelimerkki (X tai O)
      * @param x Sijanti laudalla vaakasuunnassa (ulomman taulukon indeksi)
