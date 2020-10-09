@@ -30,3 +30,5 @@ Javadocin saa luotua komennolla `gradle myJavadocs` ja se löytyy polusta *build
 [4. Viikko](https://github.com/AlaNeponen/Ristinolla-AI/blob/master/Dokumentaatio/Viikkoraportti4.md)
 
 [5. Viikko](https://github.com/AlaNeponen/Ristinolla-AI/blob/master/Dokumentaatio/Viikkoraportti5.md)
+
+[6. Viikko](https://github.com/AlaNeponen/Ristinolla-AI/blob/master/Dokumentaatio/Viikkoraportti6.md)
