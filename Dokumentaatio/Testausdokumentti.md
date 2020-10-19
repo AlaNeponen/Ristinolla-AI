@@ -2,7 +2,13 @@
 
 Tavoitteena oli kattaa kaikki sovelluslogiikan kannalta olennaiset luokat ja metodit yksikkötestauksella. Tässä dokumentissa on mainittu vain toteutuksen kannalta tärkeimmät testit.
 
-(Tänne tulee kuva/kuvia joista tulee ilmi projektin testikattavuus)
+![Kuva sovelluksen testikattavuudesta](sovelluksenkattavuus.png)
+
+
+![Kuva sovelluslogiikan toteuttavien luokkien testikattavuudesta](domain-paketinkattavuus.png)
+
+*(Pelilauta-luokan kattavuutta laskee se että luokan metodia "tulosta" ei ole erikseen testattu)*
+
 
 
 ### Pelilauta
